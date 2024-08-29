@@ -16,7 +16,7 @@ if (req.session.authorization) {
         let token = req.session.authorization['accessToken']; // Access Token
         
         // Verify JWT token for user authentication
-        jwt.verify(token, "access", (err, user) => {
+        jwt.verify(token, "your_secret_key", (err, user) => {
             if (!err) {
                 req.user = user; // Set authenticated user data on the request object
                 next(); // Proceed to the next middleware
